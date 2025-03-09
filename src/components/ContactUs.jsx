@@ -8,7 +8,7 @@ const ContactUs = () => {
         state: "",
         district: "",
         college: "",
-        inquiryType: "Internship", // Default selected option
+        inquiryType: "Internship",
         message: "",
     });
 
@@ -17,36 +17,41 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="min-h-screen bg-blue-50 flex flex-col lg:flex-row items-center justify-center p-10 gap-10">
+        <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 flex flex-col lg:flex-row items-center justify-center p-10 gap-10">
             {/* Contact Form */}
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white shadow-lg p-6 rounded-xl w-full max-w-lg border border-blue-500"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="bg-white shadow-xl p-8 rounded-xl w-full max-w-lg border border-blue-500"
             >
-                <h1 className="text-4xl font-bold text-blue-800 text-center">Contact Us</h1>
-                <p className="text-gray-700 mt-2 text-center">We’d love to hear from you!</p>
+                <h1 className="text-4xl font-extrabold text-blue-800 text-center">Contact Us</h1>
+                <p className="text-gray-600 mt-2 text-center">We’d love to hear from you!</p>
 
                 <form
-                    className="mt-4 flex flex-col"
+                    className="mt-4 flex flex-col space-y-4"
                     action="https://formsubmit.co/gauravwaghmare95032@gmail.com"
                     method="POST"
                 >
+                    {/* Hidden Fields */}
                     <input type="hidden" name="_subject" value="New Contact Form Submission!" />
                     <input type="hidden" name="_captcha" value="false" />
 
+                    {/* Input Fields */}
                     <input type="text" name="name" placeholder="Your Name" required
-                        className="w-full p-2 border border-gray-300 rounded-md mb-4"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
                         onChange={handleChange}
                     />
 
                     <input type="email" name="email" placeholder="Your Email" required
-                        className="w-full p-2 border border-gray-300 rounded-md mb-4"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
                         onChange={handleChange}
                     />
 
-                    <select name="state" required className="w-full p-2 border border-gray-300 rounded-md mb-4" onChange={handleChange}>
+                    <select name="state" required
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
+                        onChange={handleChange}
+                    >
                         <option value="">Select State</option>
                         <option value="Maharashtra">Maharashtra</option>
                         <option value="Delhi">Delhi</option>
@@ -54,16 +59,19 @@ const ContactUs = () => {
                     </select>
 
                     <input type="text" name="district" placeholder="Your District" required
-                        className="w-full p-2 border border-gray-300 rounded-md mb-4"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
                         onChange={handleChange}
                     />
 
                     <input type="text" name="college" placeholder="Your College Name" required
-                        className="w-full p-2 border border-gray-300 rounded-md mb-4"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
                         onChange={handleChange}
                     />
 
-                    <select name="inquiryType" required className="w-full p-2 border border-gray-300 rounded-md mb-4" onChange={handleChange}>
+                    <select name="inquiryType" required
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
+                        onChange={handleChange}
+                    >
                         <option value="Internship">Internship</option>
                         <option value="Startup">Startup</option>
                         <option value="Funding">Funding</option>
@@ -71,13 +79,18 @@ const ContactUs = () => {
                     </select>
 
                     <textarea name="message" placeholder="Your Message" required
-                        className="w-full p-2 border border-gray-300 rounded-md mb-4"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400"
                         onChange={handleChange}
                     ></textarea>
 
-                    <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md w-full hover:bg-blue-700 transition">
+                    <motion.button
+                        type="submit"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg w-full font-bold text-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
                         Send Message
-                    </button>
+                    </motion.button>
                 </form>
             </motion.div>
 
@@ -85,7 +98,7 @@ const ContactUs = () => {
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 className="w-full max-w-lg"
             >
                 <iframe
